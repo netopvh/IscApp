@@ -58,7 +58,7 @@ export default function Welcome(props) {
                 </Splide>
                 <div className="splide__arrows">
                     {last ? (
-                        <Link href="/info" className="splide__finish" onClick={goToGuest}>Avançar</Link>
+                        <Link href="/info" className="splide__finish text-center" onClick={goToGuest}>Avançar</Link>
                     ) : (
                         <button className="splide__finish" onClick={nextHandler}>Próximo</button>
                     )}
