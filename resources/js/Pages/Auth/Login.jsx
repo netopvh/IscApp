@@ -6,6 +6,7 @@ import Input from '@/Components/Input';
 import InputError from '@/Components/InputError';
 import Label from '@/Components/Label';
 import { Head, Link, useForm } from '@inertiajs/inertia-react';
+import ApplicationLogo from "@/Components/ApplicationLogo";
 
 export default function Login({ status, canResetPassword }) {
     const { data, setData, post, processing, errors, reset } = useForm({
@@ -32,7 +33,9 @@ export default function Login({ status, canResetPassword }) {
 
     return (
         <Guest>
-            <Head title="Log in" />
+            <Head title="Acessar" />
+
+            <ApplicationLogo />
 
             {status && <div className="mb-4 font-medium text-sm text-green-600">{status}</div>}
 

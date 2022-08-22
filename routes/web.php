@@ -17,7 +17,14 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/', [GuestController::class, 'index']);
+Route::get('/', function(){
+    if(auth()->check()){
+        return redirect()->route('dashboard');
+    } else {
+        return redirect()->route('welcome');
+    }
+});
+Route::get('/welcome', [GuestController::class, 'index'])->name('welcome');
 Route::get('/info', [GuestController::class, 'info'])->name('info');
 Route::get('/infection', [GuestController::class, 'infection'])->name('infection');
 Route::get('/examples', [GuestController::class, 'examples'])->name('examples');

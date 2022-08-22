@@ -1,3 +1,4 @@
+import ApplicationLogo from "@/Components/ApplicationLogo";
 import NavLink from "@/Components/NavLink";
 import Guest from "@/Layouts/Guest";
 import { Link } from "@inertiajs/inertia-react";
@@ -8,11 +9,11 @@ export default function Information() {
   return (
     <Guest>
       <div className="flex flex-col items-center">
-        <div className="mt-2 font-bold text-black rounded-full bg-yellow-600 flex items-center text-center justify-center" style={{ height: '160px', width: '160px', fontSize: '20px' }}>
+        <div className="mt-2 font-bold uppercase text-black rounded-full bg-yellow-600 flex items-center text-center justify-center" style={{ height: '160px', width: '160px', fontSize: '16px' }}>
           Informações Gerais
         </div>
         <div className="mt-20">
-          <FaLevelDownAlt className="w-12 h-12" />
+          <ApplicationLogo className="w-60" />
         </div>
         <div className="mt-20 flex flex-col">
           <NavLink href={route('infection')} active={true}>O que é infecção de Sítio Cirurgico?</NavLink>
