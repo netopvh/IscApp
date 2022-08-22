@@ -20,8 +20,8 @@ export default function Dashboard(props) {
                     <Link href={route('dashboard.pre')} className="py-10 px-6 bg-yellow-500 text-center font-bold rounded-md">Pre Operatório</Link>
                     <Link href={route('dashboard.pos')} className="py-10 px-6 bg-yellow-500 text-center font-bold rounded-md">Pós Operatório</Link>
                     <Link className="py-10 px-6 bg-yellow-500 text-center font-bold rounded-md">Monitoramento</Link>
-                    <Link className="py-10 px-6 bg-yellow-500 text-center font-bold rounded-md">Dúvidas</Link>
-                    <Link className="py-10 px-6 bg-yellow-500 text-center font-bold rounded-md">Material de Apoio</Link>
+                    <Link href={route('dashboard.question')} className="py-10 px-6 bg-yellow-500 text-center font-bold rounded-md">Dúvidas</Link>
+                    <Link href={route('dashboard.help')} className="py-10 px-6 bg-yellow-500 text-center font-bold rounded-md">Material de Apoio</Link>
                 </div>
             </div>
         </Authenticated>

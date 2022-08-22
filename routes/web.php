@@ -34,6 +34,13 @@ Route::middleware('auth')->group(function(){
     Route::get('/dashboard/pos', [DashboardController::class, 'pos'])->name('dashboard.pos');
     Route::get('/dashboard/pos/ferida', [DashboardController::class, 'ferida'])->name('dashboard.pos.ferida');
     Route::get('/dashboard/pos/dreno', [DashboardController::class, 'dreno'])->name('dashboard.pos.dreno');
+    
+    Route::get('/dashboard/question', [DashboardController::class, 'question'])->name('dashboard.question');
+    Route::get('/dashboard/question/message', [DashboardController::class, 'message'])->name('dashboard.question.message');
+    Route::get('/dashboard/question/follow', [DashboardController::class, 'follow'])->name('dashboard.question.follow');
+    Route::get('/dashboard/question/reference', [DashboardController::class, 'reference'])->name('dashboard.question.reference');
+
+    Route::get('/dashboard/help', [DashboardController::class, 'help'])->name('dashboard.help');
 });
 
 require __DIR__ . '/auth.php';
