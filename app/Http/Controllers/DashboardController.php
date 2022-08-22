@@ -47,11 +47,36 @@ class DashboardController extends Controller
         return Inertia::render('Main/Pos/Dreno');
     }
 
+    public function monitor()
+    {
+        return Inertia::render('Main/Monitor/Monitor');
+    }
+
+    public function why()
+    {
+        return Inertia::render('Main/Monitor/Why');
+    }
+
+    public function when()
+    {
+        return Inertia::render('Main/Monitor/When');
+    }
+
+    public function resp()
+    {
+        return Inertia::render('Main/Monitor/Response');
+    }
+
+    public function questionary()
+    {
+        return Inertia::render('Main/Monitor/Questionary');
+    }
+
     public function question()
     {
         return Inertia::render('Main/Questions/Answer');
     }
-
+    
     public function message()
     {
         return Inertia::render('Main/Questions/Message');

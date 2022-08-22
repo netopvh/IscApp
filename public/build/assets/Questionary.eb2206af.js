@@ -1,0 +1,1 @@
+import{A as t}from"./Authenticated.1d7e0bd2.js";import{a as r}from"./app.ce5e39e6.js";import"./index.esm.84c6f9e6.js";function i(e){return r(t,{auth:e.auth,errors:e.errors,children:r("div",{className:"mt-4 flex flex-col",children:r("div",{className:"uppercase font-bold text-lg border-b border-b-gray-800",children:"Question\xE1rio"})})})}export{i as default};

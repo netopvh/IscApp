@@ -40,6 +40,12 @@ Route::middleware('auth')->group(function(){
     Route::get('/dashboard/question/follow', [DashboardController::class, 'follow'])->name('dashboard.question.follow');
     Route::get('/dashboard/question/reference', [DashboardController::class, 'reference'])->name('dashboard.question.reference');
 
+    Route::get('/dashboard/monitor', [DashboardController::class, 'monitor'])->name('dashboard.monitor');
+    Route::get('/dashboard/monitor/why', [DashboardController::class, 'why'])->name('dashboard.monitor.why');
+    Route::get('/dashboard/monitor/when', [DashboardController::class, 'when'])->name('dashboard.monitor.when');
+    Route::get('/dashboard/monitor/resp', [DashboardController::class, 'resp'])->name('dashboard.monitor.resp');
+    Route::get('/dashboard/monitor/questionary', [DashboardController::class, 'questionary'])->name('dashboard.monitor.questionary');
+    
     Route::get('/dashboard/help', [DashboardController::class, 'help'])->name('dashboard.help');
 });
 
