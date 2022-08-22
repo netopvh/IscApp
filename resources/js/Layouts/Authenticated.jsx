@@ -3,7 +3,10 @@ import { Link } from '@inertiajs/inertia-react';
 import { FaHome, FaInfoCircle, FaUndoAlt, FaUserAlt } from "react-icons/fa";
 
 export default function Authenticated({ auth, header, children }) {
-    
+
+    const back = () => {
+        window.history.back();
+    }
 
     return (
         <div className="w-full h-screen">
@@ -15,7 +18,7 @@ export default function Authenticated({ auth, header, children }) {
                     <Link href={route('dashboard')} className="w-full focus:text-teal-500 hover:text-teal-500 justify-center inline-block text-center pt-2 pb-1">
                         <FaHome className="w-7 h-7 inline-block" />
                     </Link>
-                    <Link href={route('dashboard')} className="w-full focus:text-teal-500 hover:text-teal-500 justify-center inline-block text-center pt-2 pb-1">
+                    <Link onClick={back} as="button" type="button" className="w-full focus:text-teal-500 hover:text-teal-500 justify-center inline-block text-center pt-2 pb-1">
                         <FaUndoAlt className="w-7 h-7 inline-block" />
                     </Link>
                     <Link href="#" className="w-full focus:text-teal-500 hover:text-teal-500 justify-center inline-block text-center pt-2 pb-1">

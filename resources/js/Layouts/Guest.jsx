@@ -3,6 +3,11 @@ import React from 'react';
 import { FaHome, FaInfoCircle, FaUndoAlt, FaUserAlt } from "react-icons/fa";
 
 export default function Guest({ children }) {
+
+    const back = () => {
+        window.history.back();
+    }
+
     return (
         <div className="w-full h-screen">
             <section className="p-2 scroll-my-0">
@@ -13,7 +18,7 @@ export default function Guest({ children }) {
                     <Link href={route('info')} className="w-full focus:text-teal-500 hover:text-teal-500 justify-center inline-block text-center pt-2 pb-1">
                         <FaHome className="w-7 h-7 inline-block" />
                     </Link>
-                    <Link href={route('info')} className="w-full focus:text-teal-500 hover:text-teal-500 justify-center inline-block text-center pt-2 pb-1">
+                    <Link onClick={back} className="w-full focus:text-teal-500 hover:text-teal-500 justify-center inline-block text-center pt-2 pb-1">
                         <FaUndoAlt className="w-7 h-7 inline-block" />
                     </Link>
                     <Link href="#" className="w-full focus:text-teal-500 hover:text-teal-500 justify-center inline-block text-center pt-2 pb-1">
