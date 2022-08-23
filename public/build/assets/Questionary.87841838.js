@@ -1,1 +1,0 @@
-import{A as t}from"./Authenticated.01879600.js";import{a as r}from"./app.9228e62e.js";import"./index.esm.de445fe2.js";function i(e){return r(t,{auth:e.auth,errors:e.errors,children:r("div",{className:"mt-4 flex flex-col",children:r("div",{className:"uppercase font-bold text-lg border-b border-b-gray-800",children:"Question\xE1rio"})})})}export{i as default};

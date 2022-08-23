@@ -37,7 +37,7 @@ export default function Welcome(props) {
                         <img src="img/welcome.png" />
                         <div className="splide__container">
                             <div className="splide__title_text">
-                                Bem Vindo
+                                Bem Vindo ao InfectoPrev
                             </div>
                             <div className="splide__subtitle_text">
                                 Aplicativo de monitoramento Da ferida operatória

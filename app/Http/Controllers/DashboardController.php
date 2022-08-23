@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Inertia\Inertia;
+use MattDaneshvar\Survey\Models\Survey;
 
 class DashboardController extends Controller
 {
@@ -69,7 +70,11 @@ class DashboardController extends Controller
 
     public function questionary()
     {
-        return Inertia::render('Main/Monitor/Questionary');
+        $survey = Survey::with('questions')->get();
+        // dd($survey);
+        return Inertia::render('Main/Monitor/Questionary', [
+            'survey' => $survey,
+        ]);
     }
 
     public function question()
