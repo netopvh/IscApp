@@ -52,7 +52,8 @@ Route::middleware('auth')->group(function(){
     Route::get('/dashboard/monitor/when', [DashboardController::class, 'when'])->name('dashboard.monitor.when');
     Route::get('/dashboard/monitor/resp', [DashboardController::class, 'resp'])->name('dashboard.monitor.resp');
     Route::get('/dashboard/monitor/questionary', [DashboardController::class, 'questionary'])->name('dashboard.monitor.questionary');
-    
+    Route::post('/dashboard/monitor/questionary/store', [DashboardController::class, 'saveQuestionary'])->name('dashboard.monitor.questionary.store');
+
     Route::get('/dashboard/help', [DashboardController::class, 'help'])->name('dashboard.help');
 });
 

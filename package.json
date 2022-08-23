@@ -24,6 +24,9 @@
     },
     "dependencies": {
         "@splidejs/react-splide": "^0.7.8",
-        "react-icons": "^4.4.0"
+        "react-icons": "^4.4.0",
+        "survey-core": "^1.9.45",
+        "survey-react": "^1.9.45",
+        "survey-react-ui": "^1.9.45"
     }
 }

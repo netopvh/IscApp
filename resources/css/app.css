@@ -2,6 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+.sd-selectbase--multi-column{
+  display: flex;
+  flex-direction: column;
+}
+
+.sd-body__navigation .sd-btn{
+  padding: calc(2 * var(--base-unit, 8px)) calc(8 * var(--base-unit, 8px));
+  background:rgb(191, 106, 15);
+  margin-bottom: 60px;
+}
+
 .splide__container{
   margin: 0 20px 0 20px;
 }

@@ -15,7 +15,10 @@ class SurveySeeder extends Seeder
      */
     public function run()
     {
-        $survey = Survey::create(['name' => 'Questionário de monitoramento da ferida cirúrgica']);
+        $survey = Survey::create([
+            'name' => 'Questionário de monitoramento da ferida cirúrgica',
+            'settings' => ['limit-per-participant' => 15]
+        ]);
 
         $survey->questions()->create([
             'content' => 'Umidade?',

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Inertia\Inertia;
+use MattDaneshvar\Survey\Models\Entry;
+use MattDaneshvar\Survey\Models\Question;
 use MattDaneshvar\Survey\Models\Survey;
 
 class DashboardController extends Controller
@@ -70,18 +72,49 @@ class DashboardController extends Controller
 
     public function questionary()
     {
-        $survey = Survey::with('questions')->get();
+        $survey = Question::orderBy('id' ,'asc')
+            ->get()
+            ->map(function($data){
+                return [
+                    'type' => 'radiogroup',
+                    'title' => $data->content,
+                    'isRequired' => true,
+                    'colCount' => 3,
+                    'choices' => $data->options
+                ];
+            });
+
+            // dd($survey);
+
+        //     "type": "radiogroup",
+        //   "name": "q1",
+        //   "title": "Umidade?",
+        //   "isRequired": true,
+        //   "colCount": 3,
+        //   "choices": [
+        //     "Seca",
+        //     "Úmida",
+        //     "Vazando"
+        //   ]
         // dd($survey);
         return Inertia::render('Main/Monitor/Questionary', [
-            'survey' => $survey,
+            'question' => $survey,
         ]);
+    }
+
+    public function saveQuestionary(Request $request)
+    {
+        $data = $this->replace_key($request->all());
+        $survey = Survey::find(1);
+        (new Entry)->for($survey)->by(auth()->user())->fromArray($data)->push();
+        return redirect()->back()->with('message', 'Seu questionário foi gravado com sucesso');
     }
 
     public function question()
     {
         return Inertia::render('Main/Questions/Answer');
     }
-    
+
     public function message()
     {
         return Inertia::render('Main/Questions/Message');
@@ -100,5 +133,19 @@ class DashboardController extends Controller
     public function help()
     {
         return Inertia::render('Main/Help');
+    }
+
+    private function replace_key($arr) {
+        $keysAr = array_keys($arr);
+        $valuesAr = array_values($arr);
+        $newKeys = [];
+        
+        foreach($keysAr as $key) {
+            array_push($newKeys, "q" . substr($key, 8));
+        }
+
+        $arr = array_combine($newKeys, $valuesAr);
+
+        return $arr;  
     }
 }

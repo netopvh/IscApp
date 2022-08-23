@@ -1,6 +1,7 @@
 import './bootstrap';
-import '../css/app.css';
 import '@splidejs/react-splide/css/core';
+import "survey-core/defaultV2.css";
+import '../css/app.css';
 
 import React from 'react';
 import { render } from 'react-dom';
