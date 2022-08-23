@@ -28,7 +28,7 @@ export default function Welcome(props) {
     return (
         <>
             <Head title="Welcome" />
-            <div className="relative flex flex-col items-top justify-center min-h-screen bg-white sm:items-center sm:pt-0">
+            <div className="relative flex flex-col items-top min-h-screen bg-white">
 
                 <Splide option={{
                     isNavigation: false

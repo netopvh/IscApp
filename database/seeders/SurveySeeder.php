@@ -67,5 +67,10 @@ class SurveySeeder extends Seeder
             'type' => 'radio',
             'options' => ['Sem febre','Com febre']
         ]);
+
+        $survey->questions()->create([
+            'content' => 'Registre opcionalmente outras informações em relação a sua recuperação',
+            'type' => 'text'
+        ]);
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 use MattDaneshvar\Survey\Models\Entry;
 use MattDaneshvar\Survey\Models\Question;
@@ -72,19 +73,19 @@ class DashboardController extends Controller
 
     public function questionary()
     {
-        $survey = Question::orderBy('id' ,'asc')
+        $survey = Question::orderBy('id', 'asc')
             ->get()
-            ->map(function($data){
+            ->map(function ($data) {
                 return [
-                    'type' => 'radiogroup',
+                    'type' => $data->type == 'radio' ? 'radiogroup' : $data->type,
                     'title' => $data->content,
-                    'isRequired' => true,
+                    'isRequired' => $data->type == 'text' ? false : true,
                     'colCount' => 3,
-                    'choices' => $data->options
+                    'choices' => $data->options ? $data->options : null
                 ];
             });
 
-            // dd($survey);
+        // dd($survey);
 
         //     "type": "radiogroup",
         //   "name": "q1",
@@ -122,7 +123,27 @@ class DashboardController extends Controller
 
     public function follow()
     {
-        return Inertia::render('Main/Questions/Follow');
+        $entries = Entry::with(['survey'])->where('participant_id', Auth::user()->id)
+        ->get()
+        ->map(function($data){
+            return [
+                'id' => $data->id,
+                'created_at' => $data->created_at->format('d/m/Y H:i:s'),
+            ];
+        });
+
+        return Inertia::render('Main/Questions/Follow', [
+            'entries' => $entries,
+        ]);
+    }
+
+    public function result($id)
+    {
+        $entry = Entry::with(['survey', 'answers.question'])->find($id);
+
+        return Inertia::render('Main/Monitor/Result', [
+            'entry' => $entry,
+        ]);
     }
 
     public function reference()
@@ -135,17 +156,18 @@ class DashboardController extends Controller
         return Inertia::render('Main/Help');
     }
 
-    private function replace_key($arr) {
+    private function replace_key($arr)
+    {
         $keysAr = array_keys($arr);
         $valuesAr = array_values($arr);
         $newKeys = [];
-        
-        foreach($keysAr as $key) {
+
+        foreach ($keysAr as $key) {
             array_push($newKeys, "q" . substr($key, 8));
         }
 
         $arr = array_combine($newKeys, $valuesAr);
 
-        return $arr;  
+        return $arr;
     }
 }

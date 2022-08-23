@@ -1,13 +1,15 @@
 import Authenticated from "@/Layouts/Authenticated"
 import { Link } from "@inertiajs/inertia-react"
 import React from 'react'
-import { FaWhatsapp } from "react-icons/fa";
 
 export default function Follow(props) {
+
+  const { entries, auth, errors } = props;
+
   return (
     <Authenticated
-      auth={props.auth}
-      errors={props.errors}
+      auth={auth}
+      errors={errors}
     >
       <div className="mt-4 flex flex-col">
         <div className="uppercase font-bold text-lg border-b border-b-gray-800">
@@ -19,8 +21,10 @@ export default function Follow(props) {
             <li>- MOSTRARÁ OS DIAS QUE FORAM RESPONDIDOS;</li>
           </ul>
         </div>
-        <div className="mt-10 w-full">
-          <img src="/img/follow.svg" />
+        <div className="flex flex-col mt-2 w-full">
+          {
+            entries.map((entry, index) => <Link href={route('dashboard.question.result', {id: entry.id})} key={index} className="py-4 uppercase font-bold">Questionário {index + 1} - {entry.created_at}</Link>)
+          }
         </div>
       </div>
     </Authenticated>

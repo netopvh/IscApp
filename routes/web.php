@@ -45,6 +45,7 @@ Route::middleware('auth')->group(function(){
     Route::get('/dashboard/question', [DashboardController::class, 'question'])->name('dashboard.question');
     Route::get('/dashboard/question/message', [DashboardController::class, 'message'])->name('dashboard.question.message');
     Route::get('/dashboard/question/follow', [DashboardController::class, 'follow'])->name('dashboard.question.follow');
+    Route::get('/dashboard/question/follow/{id}', [DashboardController::class, 'result'])->name('dashboard.question.result');
     Route::get('/dashboard/question/reference', [DashboardController::class, 'reference'])->name('dashboard.question.reference');
 
     Route::get('/dashboard/monitor', [DashboardController::class, 'monitor'])->name('dashboard.monitor');
