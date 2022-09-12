@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from '@inertiajs/inertia-react';
-import { FaHome, FaInfoCircle, FaUndoAlt, FaUserAlt } from "react-icons/fa";
+import { FaHome, FaUndoAlt, FaUserAlt } from "react-icons/fa";
 
 export default function Authenticated({ auth, header, children }) {
 
