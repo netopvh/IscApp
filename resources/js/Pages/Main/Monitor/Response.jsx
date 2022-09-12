@@ -18,8 +18,8 @@ export default function Response(props) {
             <li>- Você responderá 10 perguntas</li>
             <li>- Leia com atenção</li>
             <li>- Para cada pergunta escolha somente uma resposta</li>
-            <li>- Não existe resposta CERTAS ou ERRADAS</li>
-            <li>- Ao final do questionário, você pode tirar uma foto da ferida e nos enviar!</li>
+            <li>- Não existe resposta CERTA ou ERRADA</li>
+            <li>- Ao final do questionário, você pode tirar uma foto da ferida e nos enviar</li>
             <li>- Desejamos boa recuperação!</li>
           </ul>
         </div>

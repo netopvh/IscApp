@@ -21,8 +21,8 @@ export default function DailyOp(props) {
         </div>
         <div className="w-full p-2 bg-gray-100 rounded-lg text-center mt-8">
           <div>
-            Após o término da cirurgia, você será conduzido a uma sala de 
-            recuperação anestésica, onde permanecerá aos cuidados da enfermagem.
+            Após o término da cirurgia, você será conduzido a uma sala de
+            recuperação anestésica, onde permanecerá aos cuidados da enfermagem
           </div>
         </div>
       </div>

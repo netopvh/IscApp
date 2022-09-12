@@ -16,7 +16,7 @@ export default function Information() {
           <ApplicationLogo className="w-60" />
         </div>
         <div className="mt-20 flex flex-col">
-          <NavLink href={route('infection')} active={true}>O que é infecção de Sítio Cirurgico?</NavLink>
+          <NavLink href={route('infection')} active={true}>O que é infecção Cirúrgica?</NavLink>
           <NavLink href={route('examples')} active={true}>Exemplos de Manifestação</NavLink>
           <NavLink href={route('manifest')} active={true}>Como se manifesta?</NavLink>
           <NavLink href={route('ingress')} active={true}>Como realizar o cadastro?</NavLink>

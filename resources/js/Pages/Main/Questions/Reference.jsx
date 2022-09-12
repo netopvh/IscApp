@@ -14,16 +14,19 @@ export default function Reference(props) {
         <div className="mt-6 w-full font-semibold">
           <ul className="list-disc">
             <li>- ELABORAÇÃO:</li>
-            <div className="text-md">NÚBIA SOUZA CORREIA. ENFERMEIRA.
-              MESTRE EM PRÁTICA DO CUIDADO EM SAÚDE - MESTRADO PROFISSIONAL DA UNIVERSIDADE FEDERAL DO PARANÁ - UFPR.</div>
+            <div className="text-md">
+            Núbia Souza Correia. Enfermeira. Mestre em Prática do Cuidado em Saúde - Mestrado Profissional da Universidade Federal do Paraná - UFPR
+            </div>
           </ul>
           <div className="mt-10">
-            ELAINE DREHMER DE ALMEIDA CRUZ. ENFERMEIRA. PROFa DRa. DO DEPARTAMENTO DE
-            ENFERMAGEM DA UNIVERSIDADE FEDERAL DO PARANÁ.
+          Elaine Drehmer de Almeida Cruz. Enfermeira. Profª. Drª. do Programa de Pós-graduação em Cuidado em Saúde da Universidade Federal do Paraná -UFPR
           </div>
           <div className="mt-10">
-            Produto originado da Dissertação de Mestrado:
-            "Aplicativo móvel para vigilância de infecção de Sítio Cirúrgico Pós Alta Hospitalar"
+          Produto originado da Dissertação de Mestrado:"Aplicativo móvel para vigilância pós-alta de infecção de sítio cirúrgico".
+          </div>
+          <div className="mt-10">
+            APOIO: <br />
+            COFEN/CAPES
           </div>
           <div className="mt-10 text-center">
             Porto Velho RO, 2022

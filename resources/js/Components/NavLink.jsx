@@ -13,7 +13,7 @@ export default function NavLink({ href, active, children }) {
             }
         >
             {children}
-            <FaAngleDoubleRight className="w-5 h-5 inline-block ml-4" />
+            <FaAngleDoubleRight className="w-5 h-5 inline-block ml-2" />
         </Link>
     );
 }

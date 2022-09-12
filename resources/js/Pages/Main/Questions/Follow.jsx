@@ -17,8 +17,8 @@ export default function Follow(props) {
         </div>
         <div className="mt-6 w-full font-semibold">
           <ul className="list-disc">
-            <li>- ABRIRÁ AS INFORMAÇÕES REFERENTE AS RESPOSTAS DADAS NO QUESTIONÁRIO;</li>
-            <li>- MOSTRARÁ OS DIAS QUE FORAM RESPONDIDOS;</li>
+            <li>- Abrirá as informações referentes às respostas dadas no questionário</li>
+            <li>- Mostrará os dias que foram respondidos, e ao clicar sobre o dia respondido, abrirá suas respectivas respostas</li>
           </ul>
         </div>
         <div className="flex flex-col mt-2 w-full">

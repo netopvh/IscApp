@@ -13,7 +13,7 @@ export default function Monitor(props) {
           Monitoramento da ferida cirúrgica
         </div>
         <div className="mt-20 flex flex-col">
-          <NavLink href={route('dashboard.monitor.why')} active={true}>Por quê devo responder ao questionário?</NavLink>
+          <NavLink href={route('dashboard.monitor.why')} active={true}>Por que devo responder ao questionário?</NavLink>
           <NavLink href={route('dashboard.monitor.when')} active={true}>Quando devo responder?</NavLink>
           <NavLink href={route('dashboard.monitor.resp')} active={true}>Clique aqui para responder</NavLink>
         </div>

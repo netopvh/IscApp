@@ -15,10 +15,9 @@ export default function Help(props) {
         </div>
         <div className="mt-6 w-full font-semibold">
           <ul className="list-disc">
-            <li>- QUANDO AO FINAL DO QUESTIONÁRIO, APARECER UM SINAL DE ALERTA;</li>
-            <li>- QUANDO VOCÊ AO LER AS INFORMAÇÕES SOBRE IFECÇÃO DA FERIDA CIRÚRGICA E ACHAR QUE ESTÁ APRESENTANDO ESSE SINAIS E SINTOMAS;</li>
-            <li>- QUANDO VOCÊ TIVER DÚVIDAS SOBRE SEUS SINAIS E SINTOMAS REFERENTE A FERIDA OPERATÓRIA;</li>
-            <li>- LEMBRE-SE: ENVIE SUA DÚVIDA E AGUARDA CALMAMENTE A RESPOSTA DE RETORNO!</li>
+            <li>- Quano ao final do questionário, aparecer um sinal de alerta</li>
+            <li>- Quando ao ler as informações sobre infecção da ferida cirúrgica e você achar que está apresentando esses sinais e sintomas</li>
+            <li>- Lembre-se: envie sua dúvida, clicando no espaço indicado abaixo</li>
           </ul>
         </div>
         <div className="mt-10 text-center">
