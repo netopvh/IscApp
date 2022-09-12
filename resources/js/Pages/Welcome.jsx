@@ -34,7 +34,7 @@ export default function Welcome(props) {
                     isNavigation: false
                 }} ref={splideRef} aria-label="welcome">
                     <SplideSlide>
-                        <img src="img/welcome.png" />
+                        <img src="img/intro.svg" />
                         <div className="splide__container">
                             <div className="splide__title_text">
                                 Bem Vindo ao InfectoPrev
@@ -45,7 +45,7 @@ export default function Welcome(props) {
                         </div>
                     </SplideSlide>
                     <SplideSlide>
-                        <img src="img/welcome.png" />
+                        <img src="img/second.svg" />
                         <div className="splide__container">
                             <div className="splide__title_text">
                                 Objetivo
