@@ -51,7 +51,7 @@ export default function Welcome(props) {
                                 Objetivo
                             </div>
                             <div className="splide__subtitle_text">
-                            Esse aplicativo tem o objetivo de monitorar sinais e sintomas de INFECÇÃO DA FERIDA OPERATÓRIA por um período de 30 dias após a cirurgia
+                            Esse aplicativo tem o objetivo de monitorar sinais e sintomas de INFECÇÃO DA FERIDA OPERATÓRIA por um período de 30 dias após a cirurgia.
                             </div>
                         </div>
                     </SplideSlide>

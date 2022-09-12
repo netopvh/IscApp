@@ -22,9 +22,6 @@ export default function Authenticated({ auth, header, children }) {
                         <FaUndoAlt className="w-7 h-7 inline-block" />
                     </Link>
                     <Link href="#" className="w-full focus:text-teal-500 hover:text-teal-500 justify-center inline-block text-center pt-2 pb-1">
-                        <FaInfoCircle className="w-7 h-7 inline-block" />
-                    </Link>
-                    <Link href="#" className="w-full focus:text-teal-500 hover:text-teal-500 justify-center inline-block text-center pt-2 pb-1">
                         <FaUserAlt className="w-7 h-7 inline-block" />
                     </Link>
                 </div>
