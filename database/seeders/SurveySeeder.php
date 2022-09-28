@@ -72,5 +72,16 @@ class SurveySeeder extends Seeder
             'content' => 'Registre opcionalmente outras informações em relação a sua recuperação',
             'type' => 'text'
         ]);
+
+        $survey->questions()->create([
+            'type' => 'file',
+            'content' => 'Envie a imagem da ferida',
+            'title' => 'Envie a imagem da ferida',
+            'name' => 'image',
+            // 'storeDataAsText' => false,
+            // 'showPreview' => true,
+            // 'imageWidth' => 200,
+            // 'maxSize' => 1024 * 1024 * 2,
+        ]);
     }
 }

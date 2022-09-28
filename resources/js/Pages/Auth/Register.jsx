@@ -12,12 +12,11 @@ export default function Register() {
         cpf: '',
         surgery: '',
         hospital: '',
-        password: '',
     });
 
     useEffect(() => {
         return () => {
-            reset('password', 'password_confirmation');
+            reset('password');
         };
     }, []);
 
@@ -98,7 +97,7 @@ export default function Register() {
                     <InputError message={errors.hospital} className="mt-2" />
                 </div>
 
-                <div className="mt-4">
+                {/* <div className="mt-4">
                     <Label forInput="password" value="Senha:" />
 
                     <Input
@@ -112,7 +111,7 @@ export default function Register() {
                     />
 
                     <InputError message={errors.password} className="mt-2" />
-                </div>
+                </div> */}
 
                 <div className="flex items-center justify-center mt-4">
                     <Button className="ml-4" processing={processing}>

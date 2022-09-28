@@ -53,6 +53,10 @@ export default function Questionary(props) {
     Inertia.post(route('dashboard.monitor.questionary.store'), survey.data);
   }
 
+  function onUpload(survey) {
+    console.log("Upload");
+  }
+
   const json = {
     completedHtml: "<h3>Agradecemos seu feed</h3> <h5>Mantenha suas informações atualizadas.</h5>",
     pages: [{
@@ -75,7 +79,9 @@ export default function Questionary(props) {
       <Survey
         model={model}
         onComplete={onComplete}
-        onValueChanged={onValueChanged} />
+        onValueChanged={onValueChanged}
+        onUploadFiles={onUpload}
+         />
     </Authenticated>
   )
 }

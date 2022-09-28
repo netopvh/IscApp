@@ -4,14 +4,13 @@ import React from 'react'
 
 export default function Result(props) {
 
-  const { entry, auth, errors } = props;
-
+  const { entry, images, auth, errors } = props;
   return (
     <Authenticated
       auth={auth}
       errors={errors}
     >
-      <div className="mt-4 flex flex-col">
+      <div className="mt-4 mb-16 flex flex-col">
         <div className="uppercase font-bold text-lg border-b border-b-gray-800">
           Respostas do Questionário
         </div>
@@ -26,6 +25,19 @@ export default function Result(props) {
               )
             })
           }
+        </div>
+        <div className="flex flex-col mt-2 w-full">
+            <div className="py-2 font-bold">10. Imagem da ferida cirúrgica</div>
+            <div>
+                {images.map((image, index) => {
+                    return (
+                        <div key={index}>
+                            <img src={'/storage/'+image.path} alt="Image 1" />
+                        </div>
+                    )
+                })
+            }
+            </div>
         </div>
       </div>
     </Authenticated>

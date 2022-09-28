@@ -17,7 +17,9 @@ class CreateQuestionsTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('survey_id')->nullable();
             $table->unsignedInteger('section_id')->nullable();
-            $table->string('content');
+            $table->string('name')->nullable();
+            $table->string('content')->nullable();
+            $table->string('title')->nullable();
             $table->string('type')->default('text');
             $table->json('options')->nullable();
             $table->json('rules')->nullable();

@@ -11,7 +11,6 @@ import ApplicationLogo from "@/Components/ApplicationLogo";
 export default function Login({ status, canResetPassword }) {
     const { data, setData, post, processing, errors, reset } = useForm({
         cpf: '',
-        password: '',
         remember: '',
     });
 
@@ -41,7 +40,7 @@ export default function Login({ status, canResetPassword }) {
 
             <form onSubmit={submit}>
                 <div>
-                    <Label forInput="cpf" value="CPF:" />
+                    <Label forInput="cpf" value="Informe o seu CPF:" />
 
                     <Input
                         type="number"
@@ -55,7 +54,7 @@ export default function Login({ status, canResetPassword }) {
                     <InputError message={errors.cpf} className="mt-2" />
                 </div>
 
-                <div className="mt-4">
+                {/* <div className="mt-4">
                     <Label forInput="password" value="Password" />
 
                     <Input
@@ -68,7 +67,7 @@ export default function Login({ status, canResetPassword }) {
                     />
 
                     <InputError message={errors.password} className="mt-2" />
-                </div>
+                </div> */}
 
                 <div className="block mt-4">
                     <label className="flex items-center">

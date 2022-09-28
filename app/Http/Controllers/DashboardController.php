@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\EntryImage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 use Inertia\Inertia;
 use MattDaneshvar\Survey\Models\Entry;
 use MattDaneshvar\Survey\Models\Question;
@@ -85,19 +88,6 @@ class DashboardController extends Controller
                 ];
             });
 
-        // dd($survey);
-
-        //     "type": "radiogroup",
-        //   "name": "q1",
-        //   "title": "Umidade?",
-        //   "isRequired": true,
-        //   "colCount": 3,
-        //   "choices": [
-        //     "Seca",
-        //     "Úmida",
-        //     "Vazando"
-        //   ]
-        // dd($survey);
         return Inertia::render('Main/Monitor/Questionary', [
             'question' => $survey,
         ]);
@@ -106,9 +96,31 @@ class DashboardController extends Controller
     public function saveQuestionary(Request $request)
     {
         $data = $this->replace_key($request->all());
-        $survey = Survey::find(1);
-        (new Entry)->for($survey)->by(auth()->user())->fromArray($data)->push();
-        return redirect()->back()->with('message', 'Seu questionário foi gravado com sucesso');
+        if (isset($data['q10'])) {
+            $image = $data['q10'][0]['content'];
+            $image = str_replace('data:image/png;base64,', '', $image);
+            $image = str_replace(' ', '+', $image);
+            $fileName = Str::random(15) . '.png';
+            $file = Storage::disk('public')->put($fileName, base64_decode($image));
+            unset($data['q10']);
+
+            if ($file) {
+                $survey = Survey::find(1);
+                (new Entry)->for($survey)->by(auth()->user())->fromArray($data)->push();
+
+                $lastEntry = Entry::where('participant_id', auth()->user()->id)->get()->last();
+
+                EntryImage::create([
+                    'entry_id' => $lastEntry->id,
+                    'path' => $fileName
+                ]);
+
+                return redirect()->back()->with('message', 'Seu questionário foi gravado com sucesso');
+            }
+
+            return redirect()->back()->withErrors('Não foi possível gravar seu questionário');
+        }
+        return redirect()->back()->withErrors('É obrigatório informar a foto.');
     }
 
     public function question()
@@ -124,13 +136,13 @@ class DashboardController extends Controller
     public function follow()
     {
         $entries = Entry::with(['survey'])->where('participant_id', Auth::user()->id)
-        ->get()
-        ->map(function($data){
-            return [
-                'id' => $data->id,
-                'created_at' => $data->created_at->format('d/m/Y H:i:s'),
-            ];
-        });
+            ->get()
+            ->map(function ($data) {
+                return [
+                    'id' => $data->id,
+                    'created_at' => $data->created_at->format('d/m/Y H:i:s'),
+                ];
+            });
 
         return Inertia::render('Main/Questions/Follow', [
             'entries' => $entries,
@@ -140,9 +152,11 @@ class DashboardController extends Controller
     public function result($id)
     {
         $entry = Entry::with(['survey', 'answers.question'])->find($id);
+        $images = EntryImage::where('entry_id', $id)->get();
 
         return Inertia::render('Main/Monitor/Result', [
             'entry' => $entry,
+            'images' => $images
         ]);
     }
 

@@ -37,7 +37,7 @@ class RegisteredUserController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'cpf' => 'required|string|unique:users',
-            'password' => ['required'],
+            // 'password' => ['required'],
         ]);
 
         $user = User::create([
@@ -45,7 +45,7 @@ class RegisteredUserController extends Controller
             'cpf' => $request->cpf,
             'surgery' => $request->surgery,
             'hospital' => $request->hospital,
-            'password' => Hash::make($request->password),
+            // 'password' => Hash::make($request->password),
         ]);
 
         event(new Registered($user));

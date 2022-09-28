@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Auth;
 
+use App\Models\User;
 use Illuminate\Auth\Events\Lockout;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
@@ -30,7 +31,7 @@ class LoginRequest extends FormRequest
     {
         return [
             'cpf' => ['required', 'string'],
-            'password' => ['required', 'string'],
+            // 'password' => ['required', 'string'],
         ];
     }
 
@@ -45,13 +46,23 @@ class LoginRequest extends FormRequest
     {
         $this->ensureIsNotRateLimited();
 
-        if (! Auth::attempt($this->only('cpf', 'password'), $this->boolean('remember'))) {
+        if(!$user = User::where('cpf', $this->cpf)->first()) {
             RateLimiter::hit($this->throttleKey());
 
             throw ValidationException::withMessages([
-                'cpf' => trans('auth.failed'),
+                'cpf' => __('auth.failed'),
             ]);
         }
+
+        Auth::login($user);
+
+        // if (! Auth::attempt($this->only('cpf', 'password'), $this->boolean('remember'))) {
+        //     RateLimiter::hit($this->throttleKey());
+
+        //     throw ValidationException::withMessages([
+        //         'cpf' => trans('auth.failed'),
+        //     ]);
+        // }
 
         RateLimiter::clear($this->throttleKey());
     }
