@@ -98,10 +98,16 @@ class DashboardController extends Controller
         $data = $this->replace_key($request->all());
         if (isset($data['q10'])) {
             $image = $data['q10'][0]['content'];
-            $image = str_replace('data:image/png;base64,', '', $image);
-            $image = str_replace(' ', '+', $image);
-            $fileName = Str::random(15) . '.png';
-            $file = Storage::disk('public')->put($fileName, base64_decode($image));
+            // $imageParts = str_replace('data:image/png;base64,', '', $image);
+            $imageParts = explode(";base64,", $image);
+            $imageTypeAux = explode("image/", $imageParts[0]);
+            $imageType = $imageTypeAux[1];
+            $imageBase64 = base64_decode($imageParts[1]);
+            $fileName = Str::random(40) . '.' . $imageType;
+            $file = Storage::disk('public')->put($fileName, $imageBase64);
+            // $image = str_replace(' ', '+', $image);
+            // $fileName = Str::random(15) . '.jpg';
+            // $file = Storage::disk('public')->put($fileName, base64_decode($image));
             unset($data['q10']);
 
             if ($file) {
